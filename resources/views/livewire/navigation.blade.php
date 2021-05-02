@@ -42,7 +42,7 @@
             src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg" alt="Workflow">
         </a>
 
-        {{-- Menu lg --}}
+        {{-- Menu izquierdo --}}
         <div class="hidden sm:block sm:ml-6">
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
@@ -56,7 +56,7 @@
               class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Projects</a>
 
             @foreach ($categories as $category)
-              <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              <a href="{{ route('posts.category', $category) }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 {{ $category->name }}
               </a>
             @endforeach
@@ -64,7 +64,7 @@
         </div>
       </div>
 
-      {{-- Menú izquierdo --}}
+      {{-- Menú derecho --}}
       @auth
         <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
           {{-- Botón notificación --}}
@@ -146,7 +146,7 @@
         class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
       
       @foreach ($categories as $category)
-      <a href="#"
+      <a href="{{ route('posts.category', $category) }}"
         class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
         {{ $category->name }}
       </a>
