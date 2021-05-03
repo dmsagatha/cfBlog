@@ -1,5 +1,9 @@
 <div class="card">
-    
+  <div class="card-header">
+    <input wire:model.debounce.800ms="search" type="text" class="form-control" placeholder="Ingrese el nombre del Post">
+  </div>
+
+  @if ($posts->count())
     <div class="card-body">
       <table class="table table-striped">
         <thead>
@@ -33,5 +37,10 @@
 
     <div class="card-footer">
         {{ $posts->links() }}
+    </div> 
+  @else
+    <div class="card-body">
+      <strong>No hay ningún registro</strong>
     </div>
-  </div>
+  @endif
+</div>
