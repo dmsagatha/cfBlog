@@ -108,6 +108,10 @@
               <a href="{{ route('profile.show') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
                 {{ __('Profile') }}
               </a>
+
+              <a href="{{ route('admin.home') }}" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">
+                {{ __('Dashboard') }}
+              </a>
               
               <!-- Authentication -->
               <form method="POST" action="{{ route('logout') }}">
