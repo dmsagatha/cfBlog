@@ -246,9 +246,9 @@ return [
             'icon'  => 'fab fa-fw fa-buffer',
         ],
         [
-            'text' => 'change_password',
-            'url'  => 'admin/settings',
-            'icon' => 'fas fa-fw fa-lock',
+            'text'  => 'Etiquetas',
+            'route' => 'admin.tags.index',
+            'icon'  => 'far fa-fw fa-bookmark',
         ],
         [
             'text'    => 'multilevel',
