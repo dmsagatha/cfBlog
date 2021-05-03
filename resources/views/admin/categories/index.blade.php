@@ -14,7 +14,7 @@
   @endif
 
   <div class="card">
-    <div class="card-hear">
+    <div class="card-header">
       <a href="{{ route('admin.categories.create') }}" class="btn btn-secondary">Agregar Categoría</a>
     </div>
     <div class="card-body">

@@ -19,7 +19,7 @@
   @endif
 
   <div class="card">
-    <div class="card-hear">
+    <div class="card-header">
       <a href="{{ route('admin.tags.create') }}" class="btn btn-secondary">Agregar Etiqueta</a>
     </div>
     <div class="card-body">

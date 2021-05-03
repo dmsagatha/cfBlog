@@ -10,7 +10,7 @@
   <p>Bienvenido al Panel de Administración.</p>
 @stop
 
-@section('css')
+{{-- @section('css')
   <link rel="stylesheet" href="/css/admin_custom.css">
 @stop
 
@@ -18,4 +18,4 @@
   <script>
     console.log('Hi!'); 
   </script>
-@stop
+@stop --}}
