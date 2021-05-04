@@ -6,13 +6,7 @@
   <h1>Editar Categoría</h1>
 @stop
 
-@section('content')
-  @if (session('info'))
-    <div class="alert alert-success">
-      <strong>{{  session('info') }}</strong>
-    </div>
-  @endif
-  
+@section('content')  
   <div class="card">
     <div class="card-body">
       {{ Form::model($category, ['route' => ['admin.categories.update', $category], 'method' => 'PUT']) }}
