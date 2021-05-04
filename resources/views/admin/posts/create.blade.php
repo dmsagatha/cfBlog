@@ -6,13 +6,7 @@
   <h1>Crear nuevo Post</h1>
 @stop
 
-@section('content')
-  @if (session('info'))
-    <div class="alert alert-success">
-      <strong>{{  session('info') }}</strong>
-    </div>
-  @endif
-  
+@section('content')  
   <div class="card">
     <div class="card-body">
       {{ Form::open(['route' => 'admin.posts.store', 'files' => true]) }}

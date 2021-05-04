@@ -8,16 +8,7 @@
 @stop
 
 @section('content')
-  @if (session('danger'))
-    <div class="alert alert-danger">
-      <strong>{{  session('danger') }}</strong>
-    </div>
-  @endif
-  @if (session('info'))
-    <div class="alert alert-success">
-      <strong>{{  session('info') }}</strong>
-    </div>
-  @endif
+  @include('common.messages')
   
   @livewire('admin.posts-index')
 @stop

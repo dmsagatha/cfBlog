@@ -6,13 +6,7 @@
   <h1>Crear nueva Categoría</h1>
 @stop
 
-@section('content')
-  @if (session('info'))
-    <div class="alert alert-success">
-      <strong>{{  session('info') }}</strong>
-    </div>
-  @endif
-  
+@section('content')  
   <div class="card">
     <div class="card-body">
       {{ Form::open(['route' => 'admin.categories.store']) }}
