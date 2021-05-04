@@ -16,6 +16,8 @@
   <div class="card">
     <div class="card-body">
       {{ Form::open(['route' => 'admin.posts.store']) }}
+
+        {!! Form::hidden('user_id', auth()->user()->id) !!}
       
         <div class="form-group">
           {{ Form::label('name', 'Nombre') }}
@@ -42,9 +44,10 @@
             <label class="mr-2">
               {{ Form::checkbox('tags[]', $tag->id, null) }}
               {{ $tag->name }}
-              {!! $errors->first('tag_id', '<div class="text-danger">:message</div>') !!}
             </label>
           @endforeach
+
+          {!! $errors->first('tags', '<div class="text-danger">:message</div>') !!}
         </div>
 
         <div class="form-group">

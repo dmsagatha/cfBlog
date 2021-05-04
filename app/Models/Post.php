@@ -13,6 +13,11 @@ class Post extends Model
   use HasFactory;
 
   /**
+   * Campos que no se pueden actualizar a través del formulario
+   */
+  protected $guarded = ['id', 'created_at', 'updated_at'];
+  
+  /**
    * Relación uno a muchos inversa
    */
   public function user()
