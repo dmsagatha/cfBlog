@@ -1,27 +1,25 @@
 @extends('adminlte::page')
 
-@section('title', 'Crear Post')
+@section('title', 'Editar Post')
 
 @section('content_header')
-  <h1>Crear nuevo Post</h1>
+  <h1>Editar Post</h1>
 @stop
 
 @section('content')
-  @if (session('info'))
+  {{-- @if (session('info'))
     <div class="alert alert-success">
       <strong>{{  session('info') }}</strong>
     </div>
-  @endif
+  @endif --}}
   
   <div class="card">
     <div class="card-body">
-      {{ Form::open(['route' => 'admin.posts.store', 'files' => true]) }}
-
-        {!! Form::hidden('user_id', auth()->user()->id) !!}
+      {{ Form::model($post, ['route' => ['admin.posts.update', $post], 'files' => true, 'method' => 'PUT']) }}
       
         @include('admin.posts._form')
 
-        {{ Form::submit('Crear Post', ['class' => 'btn btn-primary']) }}
+        {{ Form::submit('Actualizar Post', ['class' => 'btn btn-primary']) }}
       {{ Form::close() }}
     </div>
   </div>
