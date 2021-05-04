@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Post;
 use App\Models\Tag;
+use App\Models\Post;
+use App\Models\Category;
+use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
@@ -25,8 +26,15 @@ class PostController extends Controller
     return view('admin.posts.create', compact('categories', 'tags'));
   }
 
-  public function store(Request $request)
+  public function store(StorePostRequest $request)
   {
+    $post = Post::create($request->all());
+
+    if ($request->tags) {
+      $post->tags()->attach($request->tags);
+    }
+    
+    return redirect()->route('admin.posts.index', $post)->with('info', 'Post creado con éxito');
   }
 
   public function show(Post $post)
