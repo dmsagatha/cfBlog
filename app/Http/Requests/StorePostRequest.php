@@ -9,27 +9,32 @@ class StorePostRequest extends FormRequest
   public function authorize()
   {
     // Autorizar si el Usuario autenticado coincide
-    if ($this->user_id == auth()->user()->id) {
+    if ($this->user_id == auth()->user()->id)
+    {
       return true;
-    } else
-    return false;
+    } else {
+      return false;
+    }
+
   }
 
   public function rules()
   {
     // Reglas si el Estatus es borrador (1)
     $rules = [
-      'name' => 'required',
-      'slug' => 'required|unique:posts',
-      'status' => 'required|in:1,2'
+      'name'   => 'required',
+      'slug'   => 'required|unique:posts',
+      'status' => 'required|in:1,2',
+      'url'    => 'image|mimes:jpeg,png,jpg,gif|min:1|max:1000'
     ];
-    
-    if ($this->status == 2) {
+
+    if ($this->status == 2)
+    {
       $rules = array_merge($rules, [
         'category_id' => 'required',
-        'tags' => 'required',
-        'extract' => 'required',
-        'body' => 'required'
+        'tags'        => 'required',
+        'extract'     => 'required',
+        'body'        => 'required',
       ]);
     }
 

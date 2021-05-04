@@ -5,7 +5,7 @@
     </h1>
 
     @foreach ($posts as $post)
-    <x-card-posts :post="$post" />
+      <x-card-posts :post="$post" />
     @endforeach
 
     <div class="mt-4">

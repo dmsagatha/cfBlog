@@ -5,9 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Models\Tag;
 use App\Models\Post;
 use App\Models\Category;
-use App\Http\Requests\StorePostRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StorePostRequest;
+use Illuminate\Support\Facades\Storage;
 
 class PostController extends Controller
 {
@@ -28,12 +29,21 @@ class PostController extends Controller
 
   public function store(StorePostRequest $request)
   {
+    // return Storage::put('posts', $request->file('file'));
+
     $post = Post::create($request->all());
+
+    if ($request->file('file')) {
+      $url = Storage::put('posts', $request->file('file'));
+      $post->image()->create([
+        'url' => $url
+      ]);
+    }
 
     if ($request->tags) {
       $post->tags()->attach($request->tags);
     }
-    
+
     return redirect()->route('admin.posts.index', $post)->with('info', 'Post creado con éxito');
   }
 
