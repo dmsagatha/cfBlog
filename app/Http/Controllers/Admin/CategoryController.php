@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('can:admin.categories.index')->only('index');
+    $this->middleware('can:admin.categories.create')->only('create', 'store');
+    $this->middleware('can:admin.categories.edit')->only('edit', 'update');
+    $this->middleware('can:admin.categories.destroy')->only('destroy');
+  }
+  
   public function index()
   {
     $categories = Category::all();
@@ -30,11 +38,6 @@ class CategoryController extends Controller
     $category = Category::create($request->all());
 
     return redirect()->route('admin.categories.edit', $category)->with('info', 'Categoría creada con éxito');;
-  }
-
-  public function show(Category $category)
-  {
-    return view('admin.categories.show', compact('category'));
   }
 
   public function edit(Category $category)
