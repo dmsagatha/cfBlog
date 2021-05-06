@@ -23,14 +23,6 @@
               <td width="10px">
                 <a href="{{ route('admin.users.edit', $user) }}" class="btn btn-primary btn-sm">Editar</a>
               </td>
-              <td width="10px">
-                <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
-                  @csrf
-                  @method('delete')
-
-                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                </form>
-              </td>
             </tr>
           @endforeach
         </tbody>
