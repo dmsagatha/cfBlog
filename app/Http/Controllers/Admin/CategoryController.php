@@ -37,7 +37,7 @@ class CategoryController extends Controller
 
     $category = Category::create($request->all());
 
-    return redirect()->route('admin.categories.edit', $category)->with('info', 'Categoría creada con éxito');;
+    return redirect()->route('admin.categories.edit', $category)->with('info', 'Categoría creada con éxito');
   }
 
   public function edit(Category $category)
